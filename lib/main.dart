@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Home Page"),
       ),
-      body: const Center(child: Text("Hello Vaidehi"),),
+      body: const Center(child: Text("Hello Stateful Widget"),),
     );
   }
 }
