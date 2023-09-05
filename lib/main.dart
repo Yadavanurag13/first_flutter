@@ -21,13 +21,42 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  String mytext = "Hello World";
+
+  void _changeText(){
+    setState(() {
+      if(mytext.startsWith("H")) {
+        mytext = "Welcome to my app";
+      }else{
+        mytext = "Hello World";
+      }
+    });
+  }
+  Widget _bodyWideget(){
+
+    var onPressed;
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      child: Center(
+        child: Column(
+          children: <Widget>[
+            Text(mytext),
+            ElevatedButton(onPressed: onPressed, child: Text("Click"),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home Page"),
       ),
-      body: const Center(child: Text("Hello Stateful Widget"),),
+      body: _bodyWideget()
     );
   }
 }
