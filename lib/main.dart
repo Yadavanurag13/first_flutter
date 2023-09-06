@@ -8,9 +8,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
       title: "My App",
-      home: HomePage());
+        theme: ThemeData(
+          primarySwatch: Colors.orange,
+          brightness: Brightness.light,
+        ),
+        home: const HomePage(),
+    );
   }
 }
 class HomePage extends StatefulWidget {
@@ -40,10 +45,11 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(8.0),
       child: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(mytext),
-            ElevatedButton(onPressed: onPressed, child: Text("Click"),
-            )
+            Text(mytext,style: const TextStyle(
+              fontSize: 22.0
+            ),),
           ],
         ),
       ),
@@ -56,7 +62,11 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text("Home Page"),
       ),
-      body: _bodyWideget()
+      body: _bodyWideget(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {_changeText();},
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
